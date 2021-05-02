@@ -1,0 +1,55 @@
+/*
+ * Copyright (c) 2017 Linaro Limited
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/dts-v1/;
+#include <nordic/nrf51822_qfaa.dtsi>
+
+/ {
+	model = "CJMCU-8223";
+	compatible = "cjmcu,cjmcu-8223";
+
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,shell-uart = &uart0;
+		zephyr,bt-mon-uart = &uart0;
+		zephyr,bt-c2h-uart = &uart0;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+	};
+};
+
+&gpiote {
+	status = "okay";
+};
+
+&gpio0 {
+	status = "okay";
+};
+
+&uart0 {
+	current-speed = <115200>;
+	status = "okay";
+	tx-pin = <0>;
+	rx-pin = <30>;
+	// rts-pin = <8>;
+	// cts-pin = <10>;
+};
+
+&i2c0 {
+	status = "okay";
+	clock-frequency = <I2C_BITRATE_FAST>;
+	sda-pin = <6>;
+	scl-pin = <7>;
+
+	/* ST Microelectronics LIS3DH motion sensor */
+	lis3dh@19 {
+		compatible = "st,lis3dh";
+		label = "LIS3DH";
+		reg = <0x19>;
+		irq-gpios = <&gpio0 1 2>;
+	};
+};
+

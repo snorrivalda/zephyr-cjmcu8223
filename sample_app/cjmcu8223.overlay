@@ -1,0 +1,5 @@
+&i2c0 {
+	lis3dh@19 {
+		status = "okay";
+	};
+};

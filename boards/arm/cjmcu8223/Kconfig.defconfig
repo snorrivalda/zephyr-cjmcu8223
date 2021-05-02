@@ -1,0 +1,25 @@
+# Kconfig - nRF51 BBC_MICROBIT board configuration
+#
+# Copyright (c) 2016 Nordic Semiconductor ASA
+#
+# SPDX-License-Identifier: Apache-2.0
+
+if BOARD_CJMCU8223
+
+config BOARD
+	default "cjmcu8223"
+
+config BT_CTLR
+	default BT
+
+## if LIS3DH
+##
+## config LIS3DH_GPIO_PIN_NUM
+## 	default 1
+##
+## config LIS3DH_I2C_ADDR
+## 	default 0x19
+##
+## endif # LIS3DH
+
+endif # BOARD_CJMCU8223

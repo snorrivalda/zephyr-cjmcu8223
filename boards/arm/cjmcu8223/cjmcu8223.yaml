@@ -1,0 +1,14 @@
+identifier: cjmcu8223
+name: CJMCU-8223 Board
+type: mcu
+arch: arm
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+ram: 16
+supported:
+  - ble
+testing:
+  ignore_tags:
+    - net
